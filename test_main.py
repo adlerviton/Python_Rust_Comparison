@@ -1,4 +1,4 @@
 from main import main
    
 def test_main():
-    assert main()==true
+    assert main()==True
