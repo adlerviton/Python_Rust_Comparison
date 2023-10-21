@@ -16,4 +16,4 @@ uvicorn==0.18.3
 numpy
 pandas
 polars
-matplotlib
+psutil
