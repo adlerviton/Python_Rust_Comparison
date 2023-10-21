@@ -7,7 +7,7 @@ def count_observations(df):
     return len(df)
 
 def sum_volume(df):
-    return df[Volume].sum()
+    return df["Volume"].sum()
 
 def describe_with_polars(filename):
     """Function which returns descriptive stats about input data using Polars."""
