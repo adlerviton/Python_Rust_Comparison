@@ -25,7 +25,7 @@ def main():
    
     spx = pl.read_csv("SPX.csv")
     number_of_observations = count_observations(spx)
-    total_volume = sum_volume(df)
+    total_volume = sum_volume(spx)
     
     end_time = time.time()
     memory_after = psutil.virtual_memory().used / (1024.0 ** 2)
