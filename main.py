@@ -27,7 +27,6 @@ def main():
     
     elapsed_time = end_time - start_time
     memory_used = memory_after - memory_before
-    results = describe_with_polars("SPX.csv")
 
     print(results)
 
