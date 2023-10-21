@@ -38,7 +38,7 @@ def main():
     print(f"Total of all volume traded: {total_volume}")
     print(f"This took {elapsed_time} seconds to complete")
     print(f"This used {memory_used} MB of memory to complete")
-    return 1
+    return True
 
 if __name__ == "__main__":
     main()
