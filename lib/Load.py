@@ -27,7 +27,7 @@ def load(dataset="SPX.csv"):
             cursor.execute('''
             INSERT INTO SPX (date, open, high, low, close, adj_close, volume) 
             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)
-            ''', (row[Date], row[Open], row[High], row[Low], row[Close], row[Adj Close], row[Volume]))
+            ''', (row["Date"], row["Open"], row["High"], row["Low"], row["Close"], row["Adj Close"], row["Volume"]))
 
     # Commit changes and close the SQLite connection
     conn.commit()
