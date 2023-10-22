@@ -47,7 +47,7 @@ fn describe_with_polars(file_path: &str) -> IoResult<DataFrame> {
         .has_header(true)
         .finish()
         .map_err(|e: PolarsError| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
-    Ok(df.describe())
+    Ok(df.describe(None))
 }
 
 fn count_observations() -> IoResult<usize> {
