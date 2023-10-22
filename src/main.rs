@@ -16,7 +16,7 @@ fn main() {
     }
 }
 
-pub fn run_program() -> IoResult<i32, io::Error> {
+pub fn run_program() -> IoResult<i32> {
     let start = Instant::now();
     let mem_info_before = sys_info::mem_info().unwrap();
 
@@ -39,7 +39,7 @@ pub fn run_program() -> IoResult<i32, io::Error> {
     Ok(1)
 }
 
-fn describe_with_polars(file_path: &str) -> IoResult<DataFrame, io::Error> {
+fn describe_with_polars(file_path: &str) -> IoResult<DataFrame> {
     // Read the CSV file into a DataFrame
     let df = CsvReader::from_path(file_path)?
         .infer_schema(None)
@@ -50,13 +50,13 @@ fn describe_with_polars(file_path: &str) -> IoResult<DataFrame, io::Error> {
     df.describe()
 }
 
-fn count_observations() -> IoResult<usize, io::Error> {
+fn count_observations() -> IoResult<usize> {
     let file = File::open("SPX.csv")?;
     let mut rdr = Reader::from_reader(file);
     Ok(rdr.records().count())
 }
 
-fn sum_volume() -> IoResult<f64, io::Error> {
+fn sum_volume() -> IoResult<f64> {
     let file = File::open("SPX.csv")?;
     let mut rdr = Reader::from_reader(file);
     let mut total = 0.0;
