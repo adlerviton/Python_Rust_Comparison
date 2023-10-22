@@ -6,7 +6,7 @@ edition = "2018"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
-polars = "0.14"
+polars = {version = "0.22.1", features = ["describe"]}
 csv = "1.1"
 libc = "^0.2"
 time = "^0.1"
