@@ -7,6 +7,7 @@ use std::fs::File;
 use csv::Reader;
 use std::time::Instant;
 use std::io::{self, Result as IoResult};
+use std::num::ParseFloatError;
 
 fn main() {
     match run_program() {
@@ -46,7 +47,7 @@ fn describe_with_polars(file_path: &str) -> IoResult<DataFrame> {
         .has_header(true)
         .finish()
         .map_err(|e: PolarsError| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
-    Ok(df.describe(/* std::option::Option<&[f64]> */))
+    Ok(df.describe())
 }
 
 fn count_observations() -> IoResult<usize> {
