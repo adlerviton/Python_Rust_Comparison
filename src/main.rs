@@ -41,12 +41,12 @@ pub fn run_program() -> IoResult<i32> {
 
 fn describe_with_polars(file_path: &str) -> IoResult<DataFrame> {
     let df = CsvReader::from_path(file_path)
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?
+        .map_err(|e: /* Type */| io::Error::new(io::ErrorKind::Other, e.to_string()))?
         .infer_schema(None)
         .has_header(true)
         .finish()
-        .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
-    Ok(df.describe())
+        .map_err(|e: /* Type */| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
+    Ok(df.describe(/* std::option::Option<&[f64]> */))
 }
 
 fn count_observations() -> IoResult<usize> {
@@ -63,7 +63,7 @@ fn sum_volume() -> IoResult<f64> {
     for result in rdr.records() {
         let record = result?;
         let value: f64 = record[6].parse()
-            .map_err(|e| io::Error::new(io::ErrorKind::InvalidData, e.to_string()))?;
+            .map_err(|e: /* Type */| io::Error::new(io::ErrorKind::InvalidData, e.to_string()))?;
         total += value;
     }
 
