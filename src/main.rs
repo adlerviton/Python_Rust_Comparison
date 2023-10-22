@@ -19,7 +19,7 @@ pub fn run_program() -> Result<i32, Box<dyn Error>> {
     let mem_info_before = sys_info::mem_info().unwrap();
 
     let results = describe_with_polars("SPX.csv")?;
-    println!("{:?}", results)
+    println!("{:?}", results);
 
     let number_of_observations = count_observations()?;
     println!("There are {} days observed in the dataset.", number_of_houses);
