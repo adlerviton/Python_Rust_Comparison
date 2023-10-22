@@ -22,7 +22,7 @@ pub fn run_program() -> Result<i32, Box<dyn Error>> {
     println!("{:?}", results);
 
     let number_of_observations = count_observations()?;
-    println!("There are {} days observed in the dataset.", number_of_houses);
+    println!("There are {} days observed in the dataset.", number_of_observations);
 
     let total = sum_volume()?;
     println!("Total of all volume traded: {}", total);
@@ -34,13 +34,6 @@ pub fn run_program() -> Result<i32, Box<dyn Error>> {
 
     println!("this took {} seconds to complete", elapsed);
     println!("this used {} MB of memory to complete", mem_used);
-    std::fs::write(
-        "rust_performance.md",
-        format!(
-            "## Rust Performance Report\n- Time taken: {:.2?} seconds\n- Memory used: {} KB\n### Operations Performed\n1. Read CSV file\n2. Count number of observations\n3. Sum median house values\n", 
-            elapsed, mem_used
-        )
-    )?;
 
     Ok(1)
 }
