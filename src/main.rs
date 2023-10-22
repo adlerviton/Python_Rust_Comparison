@@ -6,7 +6,7 @@ use polars::prelude::*;
 use std::fs::File;
 use csv::Reader;
 use std::time::Instant;
-use std::io::Result as IoResult;
+use std::io::{self, Result as IoResult};
 
 fn main() {
     match run_program() {
@@ -46,7 +46,7 @@ fn describe_with_polars(file_path: &str) -> IoResult<DataFrame> {
         .has_header(true)
         .finish()
         .map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))?;
-    df.describe().map_err(|e| io::Error::new(io::ErrorKind::Other, e.to_string()))
+    Ok(df.describe())
 }
 
 fn count_observations() -> IoResult<usize> {
