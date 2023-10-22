@@ -70,5 +70,3 @@ fn sum_volume() -> IoResult<f64> {
     Ok(total)
 }
 
-    Ok(total)
-}
