@@ -3,7 +3,6 @@ extern crate polars;
 use polars::prelude::*;
 use std::fs::File;
 use csv::Reader;
-use std::error::Error;
 use std::time::Instant;
 
 fn main() {
@@ -14,7 +13,7 @@ fn main() {
     }
 }
 
-pub fn run_program() -> Result<i32r> {
+pub fn run_program() -> Result<i32> {
     let start = Instant::now();
     let mem_info_before = sys_info::mem_info().unwrap();
 
@@ -32,7 +31,7 @@ pub fn run_program() -> Result<i32r> {
     let mem_used = mem_info_after.total - mem_info_before.total;
 
 
-    println!("this took {} seconds to complete", elapsed);
+    println!("this took {:.2?} seconds to complete", elapsed);
     println!("this used {} MB of memory to complete", mem_used);
 
     Ok(1)
