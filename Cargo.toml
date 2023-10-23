@@ -1,5 +1,5 @@
 [package]
-name = "count_and_sum_price"  # replace with your project name
+name = "S&P Index Historical Data"  # replace with your project name
 version = "0.1.0"
 edition = "2018"
 
