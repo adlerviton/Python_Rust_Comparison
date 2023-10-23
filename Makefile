@@ -42,4 +42,7 @@ python_format:
 python_lint:
 	pylint --disable=R,C --ignore-patterns=test_.*?py *.py
 
-python_all: python_install python_lint python_test python_format
+python_run:
+	python3 main.py
+
+python_all: python_install python_lint python_test python_format python_run
